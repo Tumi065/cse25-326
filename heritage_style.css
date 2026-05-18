@@ -1,0 +1,325 @@
+
+   /*These apply to the colors across all pages*/
+:root {
+    --bg-main: #F8F9FA;        
+    --bg-card: #ffffff;        
+    --text-head: #000000;    
+    --text-body: #000000;       
+    --accent: #C5A059;          
+    --border: #E5E5E5;           
+}
+
+/* GLOBAL SETUP
+   Standard settings for the font and background of every page. */
+body {
+    background-color: var(--bg-main);
+    color: var(--text-body);
+    font-family: 'Georgia', serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* 2. HEADER & NAVIGATION
+Controls the top menu bar seen on every page. */
+header {
+    display: flex;
+    justify-content: space-between; /* Puts logo on left, links on right */
+    align-items: center;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-size: 19.5px;
+    font-weight: bold;
+}
+
+.logo a {
+    color: var(--text-head);
+    text-decoration: none;
+}
+
+nav a {
+    color: #000000;        
+    text-decoration: none;  
+    font-weight: bold;     
+    margin: 0 13px;         
+    transition: 0.3s;       
+}
+
+nav a:hover {
+    color: var(--accent);   
+    transform: scale(1.05); 
+    color: #d4af37; 
+}
+
+/*3. HOME / WELCOME PAGE SETUP
+Specifically for index.html (the opening screen).*/
+body.home-page {
+    /* Darkened background image that fills the whole screen */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                      url('https://images.unsplash.com/photo-1604242692760-2f7b0c26856d?q=80&w=1169&auto=format&fit=crop'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-section {
+    /* Centers the welcome text vertically and horizontally */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white; 
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+}
+
+.hero-section p {
+    font-size: 2.3rem;
+    margin-top: 10px;
+}
+
+.hero-section a.btn-pill {
+    
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-top: 20px;
+    text-decoration: none;
+    border: 1px solid #d4af37;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+.hero-section a.btn-pill:hover {
+    background-color: var(--accent);
+    color: white;
+}
+
+/* 4. CONTENT LAYOUT
+   Used for the information sections on about.html and service.html.*/
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the content on the page */
+    padding: 40px 20px;
+}
+
+section.row-item {
+    /* Puts the image and text side-by-side */
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+section.row-item img {
+    width: 400px;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+article.text-block {
+    flex: 1;
+}
+
+article.text-block h2, 
+article.text-block h3 {
+    font-size: 1.7rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+article.text-block p {
+    line-height: 1.7; /* Adds space between lines for easier reading */
+    color: #333;
+    font-size: 1.3rem;
+    margin: 0; 
+}
+
+/*
+   5. COLLECTION GRID SETUP
+   Controls the layout for the watch catalog on collection.html.
+ */
+.collection-grid {
+    /* Displays items in 3 columns */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+figure.product-card {
+    margin: 0;
+    text-align: center;
+}
+
+figure.product-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover; 
+    background-color: #f0f0f0;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.btn-view {
+    /* Styles the "VIEW DETAILS" button for each watch */
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1f1d1d;
+    color: #d4af37;
+    text-decoration: none;
+    border: 1px solid #d4af37;
+    transition: 0.3s;
+}
+
+.btn-view:hover {
+    background-color: #d4af37;
+    color: #000000;
+}
+
+.image-block {
+    /* Wraps images in the service page to control their size and spacing */
+    border-radius: 8px;
+    overflow: hidden;
+    width: 400px;
+    height: 300px;
+}
+
+/* 6. WATCH CARDS
+Used specifically for the "Featured Models" on home.html.*/
+.watch-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap; /* Allows cards to drop to next row if screen is small */
+}
+
+.watch-card {
+    width: 400px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    background-color: var(--bg-card);
+    transition: transform 0.3s ease;
+}
+
+.watch-card:hover { 
+    transform: translateY(-5px); /* Card lifts up when hovered */
+}
+
+.watch-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* 7. CONTACT PAGE SPECIFICS
+Settings for contact.html.*/
+body.contact-page {
+    /* Specific light background image for the contact screen */
+    background-image: linear-gradient(rgba(182, 182, 182, 0.6), rgba(207, 207, 207, 0.6)),
+                      url(pawel-czerwinski-T5VUBvCYqKk-unsplash.jpg); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-container {
+    /* Centers the contact form in the middle of the screen */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.submit-pill {
+    /* The gold "Submit" button */
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px; 
+    cursor: pointer;
+}
+
+/*8. FOOTER SETUP
+The black bar at the very bottom of the pages.*/
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background-color: var(--text-head);
+    color: white;
+    height: 30px;
+}
+
+.social-pill {
+    padding: 4px 10px;
+    font-size: 1.3rem;
+    margin: 0 5px;
+}
+
+.footer-text p {
+    margin-top: 100px;
+    margin-bottom: 10px;
+}
+
+.back-footer {
+    text-align: center;
+    margin-top: -70px;
+    padding-bottom: 50px;
+}
+
+.back-to-collection {
+    font-size: 24px;         
+    font-weight: 700;       
+    letter-spacing: 5px;     
+    text-transform: uppercase;
+    color: #000;
+    text-decoration: none;  
+    border-bottom: 2px solid #000;
+    padding-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.back-to-collection:hover {
+    color: #000000;            
+    border-bottom-color: #666;
+    letter-spacing: 7px;    
+}
+.btn-primary {
+    background-color: #d4af37 !important;
+    border-color: #d4af37 !important;
+    color: #ffffff !important; /* Ensures the text remains white */
+}
+
+/* Optional: Adding a hover state so the button feels interactive */
+.btn-primary:hover {
+    background-color: #d4af37 !important;
+    border-color: #d4af37 !important;
+}
