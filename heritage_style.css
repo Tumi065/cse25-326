@@ -48,10 +48,18 @@ nav a {
     transition: 0.3s;       
 }
 
+nav a.active {
+    color: #b8860b; /* A heritage gold color */
+    font-weight: bold;
+    border-bottom: 2px solid #b8860b; /* Adds a line under the current page */
+    text-decoration: none;
+}
+
 nav a:hover {
     color: var(--accent);   
     transform: scale(1.05); 
-    color: #d4af37; 
+    color: #d4af37;
+    text-decoration: none; 
 }
 
 /*3. HOME / WELCOME PAGE SETUP
